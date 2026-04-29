@@ -1,4 +1,5 @@
 import type { DashboardData } from '../types/dashboard';
+import {SummaryCards} from "./SummaryCards";
 
 export interface PipelineDashboardProps {
   data: DashboardData;
@@ -35,6 +36,8 @@ export function PipelineDashboard({ data, className }: PipelineDashboardProps) {
                 Showing {data.repositories.length} repositories, {data.pipelines.length} pipelines, and{' '}
                 {data.executions.length} executions.
               </p>
+
+              <SummaryCards executions={data.executions} />
             </div>
         )}
       </section>

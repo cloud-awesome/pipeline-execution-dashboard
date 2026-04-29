@@ -38,6 +38,19 @@ describe('PipelineDashboard', () => {
     ).toBeInTheDocument();
   });
 
+  it('renders execution summary cards when data is available', () => {
+    render(<PipelineDashboard data={dashboardDataFixture} />);
+
+    expect(
+        screen.getByRole('heading', {
+          name: 'Execution summary',
+        }),
+    ).toBeInTheDocument();
+
+    expect(screen.getByLabelText('Success: 1 execution')).toBeInTheDocument();
+    expect(screen.getByLabelText('Warning: 1 execution')).toBeInTheDocument();
+  });
+
   it('renders a useful empty state when no dashboard data is available', () => {
     render(<PipelineDashboard data={emptyDashboardData} />);
 
