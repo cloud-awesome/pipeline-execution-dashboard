@@ -1,25 +1,71 @@
 import { render, screen } from '@testing-library/react';
 
-import { PipelineDashboard } from '../../src';
+import { dashboardDataFixture, PipelineDashboard, type DashboardData } from '../../src';
+
+const emptyDashboardData: DashboardData = {
+  generatedAt: '2026-04-29T12:00:00.000Z',
+  repositories: [],
+  pipelines: [],
+  executions: [],
+};
 
 describe('PipelineDashboard', () => {
   it('renders the dashboard landmark', () => {
-    render(<PipelineDashboard />);
+    render(<PipelineDashboard data={dashboardDataFixture} />);
 
     expect(
-      screen.getByRole('region', {
-        name: 'Pipeline execution dashboard',
-      }),
+        screen.getByRole('region', {
+          name: 'Pipeline execution dashboard',
+        }),
     ).toBeInTheDocument();
   });
 
   it('applies a custom class name', () => {
-    render(<PipelineDashboard className="custom-dashboard" />);
+    render(<PipelineDashboard data={dashboardDataFixture} className="custom-dashboard" />);
 
     expect(
-      screen.getByRole('region', {
-        name: 'Pipeline execution dashboard',
-      }),
+        screen.getByRole('region', {
+          name: 'Pipeline execution dashboard',
+        }),
     ).toHaveClass('ped-dashboard', 'custom-dashboard');
+  });
+
+  it('renders dashboard data counts when data is available', () => {
+    render(<PipelineDashboard data={dashboardDataFixture} />);
+
+    expect(
+        screen.getByText('Showing 3 repositories, 6 pipelines, and 6 executions.'),
+    ).toBeInTheDocument();
+  });
+
+  it('renders a useful empty state when no dashboard data is available', () => {
+    render(<PipelineDashboard data={emptyDashboardData} />);
+
+    expect(screen.getByRole('status')).toBeInTheDocument();
+    expect(screen.getByText('No pipeline execution data available')).toBeInTheDocument();
+    expect(
+        screen.getByText('Provide repositories, pipelines, and executions to populate the dashboard.'),
+    ).toBeInTheDocument();
+  });
+
+  it('renders the generated timestamp as a time element', () => {
+    render(<PipelineDashboard data={dashboardDataFixture} />);
+
+    expect(screen.getByText(/Generated at/i)).toBeInTheDocument();
+    expect(screen.getByText(/Apr|29|2026/i).closest('time')).toHaveAttribute(
+        'dateTime',
+        dashboardDataFixture.generatedAt,
+    );
+  });
+
+  it('does not throw if generatedAt is not parseable', () => {
+    const dataWithInvalidGeneratedAt: DashboardData = {
+      ...emptyDashboardData,
+      generatedAt: 'not-a-date',
+    };
+
+    render(<PipelineDashboard data={dataWithInvalidGeneratedAt} />);
+
+    expect(screen.getByText('not-a-date')).toBeInTheDocument();
   });
 });
