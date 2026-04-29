@@ -1,0 +1,24 @@
+.ped-dashboard {
+  --ped-color-surface: #ffffff;
+  --ped-color-text: #1f2937;
+  --ped-color-border: #d1d5db;
+  --ped-spacing-md: 1rem;
+  --ped-radius-md: 0.5rem;
+
+  box-sizing: border-box;
+  padding: var(--ped-spacing-md);
+  color: var(--ped-color-text);
+  background: var(--ped-color-surface);
+  border: 1px solid var(--ped-color-border);
+  border-radius: var(--ped-radius-md);
+}
+
+.ped-dashboard *,
+.ped-dashboard *::before,
+.ped-dashboard *::after {
+  box-sizing: inherit;
+}
+
+.ped-dashboard__placeholder {
+  margin: 0;
+}
