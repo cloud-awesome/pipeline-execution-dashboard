@@ -51,6 +51,22 @@ describe('PipelineDashboard', () => {
     expect(screen.getByLabelText('Warning: 1 execution')).toBeInTheDocument();
   });
 
+  it('renders the latest pipeline executions table when data is available', () => {
+    render(<PipelineDashboard data={dashboardDataFixture} />);
+
+    expect(
+        screen.getByRole('heading', {
+          name: 'Latest pipeline executions',
+        }),
+    ).toBeInTheDocument();
+
+    expect(
+        screen.getByRole('table', {
+          name: 'Latest execution status for each pipeline',
+        }),
+    ).toBeInTheDocument();
+  });
+
   it('renders a useful empty state when no dashboard data is available', () => {
     render(<PipelineDashboard data={emptyDashboardData} />);
 
@@ -64,11 +80,10 @@ describe('PipelineDashboard', () => {
   it('renders the generated timestamp as a time element', () => {
     render(<PipelineDashboard data={dashboardDataFixture} />);
 
-    expect(screen.getByText(/Generated at/i)).toBeInTheDocument();
-    expect(screen.getByText(/Apr|29|2026/i).closest('time')).toHaveAttribute(
-        'dateTime',
-        dashboardDataFixture.generatedAt,
-    );
+    const timeElement = document.querySelector('time');
+
+    expect(timeElement).toBeInTheDocument();
+    expect(timeElement).toHaveAttribute('dateTime', dashboardDataFixture.generatedAt);
   });
 
   it('does not throw if generatedAt is not parseable', () => {

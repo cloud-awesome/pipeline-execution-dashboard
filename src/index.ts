@@ -4,6 +4,10 @@ export type { PipelineDashboardProps } from './components/PipelineDashboard';
 export { SummaryCards } from './components/SummaryCards';
 export type { SummaryCardsProps } from './components/SummaryCards';
 
+export { PipelineStatusTable } from './components/PipelineStatusTable';
+export type { PipelineStatusTableProps } from './components/PipelineStatusTable';
+
+
 export { dashboardDataFixture } from './fixtures/dashboardData';
 
 export type {
@@ -26,5 +30,16 @@ export type { DashboardDataValidationResult } from './validation/dashboardDataVa
 
 export { formatStatusLabel, getExecutionStatusSummary } from './utils/statusSummary';
 export type { StatusSummaryItem } from './utils/statusSummary';
+
+export { formatDateTime, formatDuration } from './utils/formatting';
+
+export {
+  getLatestExecutionForPipeline,
+  getPipelineStatusRows,
+  getRepositoryDisplayName,
+} from './utils/pipelineStatusRows';
+
+export type { PipelineStatusRow } from './utils/pipelineStatusRows';
+
 
 import './styles/index.scss';
