@@ -17,10 +17,9 @@ export function PipelineDashboard({ data, className }: PipelineDashboardProps) {
       <section className={rootClassName} aria-label="Pipeline execution dashboard">
         <header className="ped-dashboard__header">
           <div>
-            <h2 className="ped-dashboard__title">Pipeline execution dashboard</h2>
+            <h2 className="ped-dashboard__title">Build and release monitor</h2>
             <p className="ped-dashboard__generated-at">
-              Generated at{' '}
-              <time dateTime={data.generatedAt}>{formatGeneratedAt(data.generatedAt)}</time>
+              Generated at <time dateTime={data.generatedAt}>{formatGeneratedAt(data.generatedAt)}</time>
             </p>
           </div>
         </header>

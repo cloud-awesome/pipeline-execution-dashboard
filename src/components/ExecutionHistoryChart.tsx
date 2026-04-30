@@ -64,7 +64,7 @@ export function ExecutionHistoryChart({ data }: ExecutionHistoryChartProps) {
               <XAxis dataKey="label" angle={-30} textAnchor="end" interval={0} height={80} />
               <YAxis allowDecimals={false} />
               <Tooltip />
-              <Legend />
+              <Legend layout="vertical" align="left" verticalAlign="middle" />
               {chartData.statuses.map((status, index) => (
                   <Bar
                       key={status}

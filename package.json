@@ -48,6 +48,9 @@
     "coverage": "vitest run --coverage",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "harness": "vite --config harnesses/component-harness/vite.config.ts",
+    "harness:build": "vite build --config harnesses/component-harness/vite.config.ts",
+    "harness:preview": "vite preview --config harnesses/component-harness/vite.config.ts",
     "lint": "eslint .",
     "prepack": "npm run clean && npm run lint && npm run typecheck && npm test && npm run build",
     "test": "vitest run",
@@ -78,6 +81,7 @@
     "tsup": "^8.0.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.0.0",
+    "vite": "^8.0.10",
     "vitest": "^4.0.0"
   },
   "dependencies": {

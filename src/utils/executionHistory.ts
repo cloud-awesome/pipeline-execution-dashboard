@@ -105,7 +105,7 @@ function toChartRow(
     bucketLabel: bucket.bucketLabel,
     repositoryName: bucket.repositoryName,
     label: `${bucket.bucketLabel} · ${bucket.repositoryName}`,
-    total: bucket.total,
+    total: bucket.total
   };
 
   for (const status of statuses) {

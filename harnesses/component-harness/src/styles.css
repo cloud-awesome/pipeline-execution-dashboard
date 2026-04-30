@@ -1,0 +1,214 @@
+:root {
+  color: #17202a;
+  background: #eef2f6;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+.harness-shell {
+  display: grid;
+  grid-template-columns: minmax(16rem, 20rem) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.harness-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: #17202a;
+  color: #f8fafc;
+}
+
+.harness-sidebar__header {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.harness-sidebar h1,
+.harness-stage h2,
+.harness-validation h3 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.harness-sidebar h1 {
+  font-size: 1.4rem;
+}
+
+.harness-stage h2 {
+  font-size: 1.6rem;
+}
+
+.harness-eyebrow {
+  margin: 0;
+  color: #72e0d1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.harness-field {
+  display: grid;
+  gap: 0.4rem;
+  color: #d9e2ec;
+  font-size: 0.9rem;
+}
+
+.harness-field select {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.65rem;
+  color: #17202a;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.35rem;
+}
+
+.harness-view-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.harness-view-list button {
+  min-height: 2.5rem;
+  padding: 0.55rem 0.75rem;
+  color: #e2e8f0;
+  text-align: left;
+  background: transparent;
+  border: 1px solid #455568;
+  border-radius: 0.35rem;
+  cursor: pointer;
+}
+
+.harness-view-list button:hover,
+.harness-view-list button:focus-visible {
+  border-color: #72e0d1;
+}
+
+.harness-view-list button.is-selected {
+  color: #17202a;
+  background: #72e0d1;
+  border-color: #72e0d1;
+}
+
+.harness-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.harness-summary div {
+  padding: 0.75rem;
+  background: #223041;
+  border: 1px solid #455568;
+  border-radius: 0.35rem;
+}
+
+.harness-summary dt {
+  color: #a7b7c8;
+  font-size: 0.75rem;
+}
+
+.harness-summary dd {
+  margin: 0.2rem 0 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.harness-stage {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+  min-width: 0;
+  padding: 1.5rem;
+}
+
+.harness-stage__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+}
+
+.harness-stage__header p {
+  max-width: 42rem;
+  margin: 0;
+  color: #52606d;
+}
+
+.harness-component-frame {
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+}
+
+.harness-component-frame .ped-summary,
+.harness-component-frame .ped-chart-section,
+.harness-component-frame .ped-table-section {
+  --ped-color-surface: #ffffff;
+  --ped-color-surface-muted: #f9fafb;
+  --ped-color-text: #1f2937;
+  --ped-color-text-muted: #6b7280;
+  --ped-color-border: #d1d5db;
+  --ped-color-status-success: #16a34a;
+  --ped-color-status-failure: #dc2626;
+  --ped-color-status-cancelled: #6b7280;
+  --ped-color-status-running: #2563eb;
+  --ped-color-status-queued: #ca8a04;
+  --ped-color-status-neutral: #64748b;
+  --ped-color-chart-1: #9333ea;
+  --ped-color-chart-2: #0891b2;
+  --ped-color-chart-3: #ea580c;
+  --ped-color-chart-4: #4f46e5;
+  --ped-spacing-sm: 0.5rem;
+  --ped-spacing-md: 1rem;
+  --ped-spacing-lg: 1.5rem;
+  --ped-radius-md: 0.5rem;
+  color: var(--ped-color-text);
+}
+
+.harness-validation {
+  padding: 1rem;
+  color: #7f1d1d;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 0.5rem;
+}
+
+.harness-validation ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 800px) {
+  .harness-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .harness-stage__header {
+    display: grid;
+  }
+}
