@@ -7,6 +7,9 @@ export type { SummaryCardsProps } from './components/SummaryCards';
 export { ExecutionHistoryChart } from './components/ExecutionHistoryChart';
 export type { ExecutionHistoryChartProps } from './components/ExecutionHistoryChart';
 
+export { PipelineExecutionTrends } from './components/PipelineExecutionTrends';
+export type { PipelineExecutionTrendsProps } from './components/PipelineExecutionTrends';
+
 export { PipelineStatusTable } from './components/PipelineStatusTable';
 export type { PipelineStatusTableProps } from './components/PipelineStatusTable';
 
@@ -41,6 +44,12 @@ export type {
   ExecutionHistoryData,
 } from './utils/executionHistory';
 
+export { getPipelineExecutionTrends } from './utils/pipelineExecutionTrends';
+export type {
+  PipelineExecutionTrend,
+  PipelineExecutionTrendOptions,
+} from './utils/pipelineExecutionTrends';
+
 export { formatDateTime, formatDuration } from './utils/formatting';
 
 export {
@@ -50,6 +59,5 @@ export {
 } from './utils/pipelineStatusRows';
 
 export type { PipelineStatusRow } from './utils/pipelineStatusRows';
-
 
 import './styles/index.scss';

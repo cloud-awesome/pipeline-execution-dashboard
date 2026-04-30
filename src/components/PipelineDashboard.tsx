@@ -1,7 +1,6 @@
 import { PipelineStatusTable } from './PipelineStatusTable';
-import { SummaryCards } from './SummaryCards';
 import type { DashboardData } from '../types/dashboard';
-import {ExecutionHistoryChart} from "./ExecutionHistoryChart";
+import { PipelineExecutionTrends } from './PipelineExecutionTrends';
 
 export interface PipelineDashboardProps {
   data: DashboardData;
@@ -11,41 +10,39 @@ export interface PipelineDashboardProps {
 export function PipelineDashboard({ data, className }: PipelineDashboardProps) {
   const rootClassName = ['ped-dashboard', className].filter(Boolean).join(' ');
   const hasDashboardData =
-      data.repositories.length > 0 || data.pipelines.length > 0 || data.executions.length > 0;
+    data.repositories.length > 0 || data.pipelines.length > 0 || data.executions.length > 0;
 
   return (
-      <section className={rootClassName} aria-label="Pipeline execution dashboard">
-        <header className="ped-dashboard__header">
-          <div>
-            <h2 className="ped-dashboard__title">Build and release monitor</h2>
-            <p className="ped-dashboard__generated-at">
-              Generated at <time dateTime={data.generatedAt}>{formatGeneratedAt(data.generatedAt)}</time>
-            </p>
-          </div>
-        </header>
+    <section className={rootClassName} aria-label="Pipeline execution dashboard">
+      <header className="ped-dashboard__header">
+        <div>
+          <h2 className="ped-dashboard__title">Build and release monitor</h2>
+          <p className="ped-dashboard__generated-at">
+            Generated at{' '}
+            <time dateTime={data.generatedAt}>{formatGeneratedAt(data.generatedAt)}</time>
+          </p>
+        </div>
+      </header>
 
-        {!hasDashboardData ? (
-            <div className="ped-dashboard__empty" role="status">
-              <h3 className="ped-dashboard__empty-title">No pipeline execution data available</h3>
-              <p className="ped-dashboard__empty-message">
-                Provide repositories, pipelines, and executions to populate the dashboard.
-              </p>
-            </div>
-        ) : (
-            <div className="ped-dashboard__content">
-              <p className="ped-dashboard__intro">
-                Showing {data.repositories.length} repositories, {data.pipelines.length} pipelines, and{' '}
-                {data.executions.length} executions.
-              </p>
+      {!hasDashboardData ? (
+        <div className="ped-dashboard__empty" role="status">
+          <h3 className="ped-dashboard__empty-title">No pipeline execution data available</h3>
+          <p className="ped-dashboard__empty-message">
+            Provide repositories, pipelines, and executions to populate the dashboard.
+          </p>
+        </div>
+      ) : (
+        <div className="ped-dashboard__content">
+          <p className="ped-dashboard__intro">
+            Showing {data.repositories.length} repositories, {data.pipelines.length} pipelines, and{' '}
+            {data.executions.length} executions.
+          </p>
 
-              <SummaryCards executions={data.executions} />
-
-              <ExecutionHistoryChart data={data} />
-
-              <PipelineStatusTable data={data} />
-            </div>
-        )}
-      </section>
+          <PipelineExecutionTrends data={data} />
+          <PipelineStatusTable data={data} />
+        </div>
+      )}
+    </section>
   );
 }
 

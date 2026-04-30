@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import {
   ExecutionHistoryChart,
   PipelineDashboard,
+  PipelineExecutionTrends,
   PipelineStatusTable,
   SummaryCards,
   validateDashboardData,
@@ -10,7 +11,7 @@ import {
 import { dashboardHarnessScenarios } from '../fixtures/dashboardScenarios';
 import type { DashboardHarnessScenario } from '../fixtures/dashboardScenarios';
 
-type HarnessView = 'dashboard' | 'summary' | 'chart' | 'table';
+type HarnessView = 'dashboard' | 'summary' | 'trends' | 'history-chart' | 'table';
 
 interface HarnessViewOption {
   id: HarnessView;
@@ -20,7 +21,8 @@ interface HarnessViewOption {
 const harnessViews: HarnessViewOption[] = [
   { id: 'dashboard', label: 'Dashboard' },
   { id: 'summary', label: 'Summary cards' },
-  { id: 'chart', label: 'History chart' },
+  { id: 'trends', label: 'Pipeline trends' },
+  { id: 'history-chart', label: 'History chart' },
   { id: 'table', label: 'Status table' },
 ];
 
@@ -120,7 +122,15 @@ function ComponentPreview({
     );
   }
 
-  if (selectedView === 'chart') {
+  if (selectedView === 'trends') {
+    return (
+      <div className="harness-component-frame">
+        <PipelineExecutionTrends data={scenario.data} />
+      </div>
+    );
+  }
+
+  if (selectedView === 'history-chart') {
     return (
       <div className="harness-component-frame">
         <ExecutionHistoryChart data={scenario.data} />

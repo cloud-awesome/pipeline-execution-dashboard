@@ -166,6 +166,7 @@ select {
 }
 
 .harness-component-frame .ped-summary,
+.harness-component-frame .ped-trends,
 .harness-component-frame .ped-chart-section,
 .harness-component-frame .ped-table-section {
   --ped-color-surface: #ffffff;
