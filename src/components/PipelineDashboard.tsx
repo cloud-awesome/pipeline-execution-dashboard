@@ -1,6 +1,7 @@
 import { PipelineStatusTable } from './PipelineStatusTable';
 import { SummaryCards } from './SummaryCards';
 import type { DashboardData } from '../types/dashboard';
+import {ExecutionHistoryChart} from "./ExecutionHistoryChart";
 
 export interface PipelineDashboardProps {
   data: DashboardData;
@@ -39,6 +40,8 @@ export function PipelineDashboard({ data, className }: PipelineDashboardProps) {
               </p>
 
               <SummaryCards executions={data.executions} />
+
+              <ExecutionHistoryChart data={data} />
 
               <PipelineStatusTable data={data} />
             </div>

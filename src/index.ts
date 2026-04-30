@@ -4,9 +4,11 @@ export type { PipelineDashboardProps } from './components/PipelineDashboard';
 export { SummaryCards } from './components/SummaryCards';
 export type { SummaryCardsProps } from './components/SummaryCards';
 
+export { ExecutionHistoryChart } from './components/ExecutionHistoryChart';
+export type { ExecutionHistoryChartProps } from './components/ExecutionHistoryChart';
+
 export { PipelineStatusTable } from './components/PipelineStatusTable';
 export type { PipelineStatusTableProps } from './components/PipelineStatusTable';
-
 
 export { dashboardDataFixture } from './fixtures/dashboardData';
 
@@ -30,6 +32,14 @@ export type { DashboardDataValidationResult } from './validation/dashboardDataVa
 
 export { formatStatusLabel, getExecutionStatusSummary } from './utils/statusSummary';
 export type { StatusSummaryItem } from './utils/statusSummary';
+
+export { getExecutionHistoryData } from './utils/executionHistory';
+export type {
+  ExecutionHistoryBucket,
+  ExecutionHistoryBucketSize,
+  ExecutionHistoryChartRow,
+  ExecutionHistoryData,
+} from './utils/executionHistory';
 
 export { formatDateTime, formatDuration } from './utils/formatting';
 

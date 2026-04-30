@@ -67,6 +67,22 @@ describe('PipelineDashboard', () => {
     ).toBeInTheDocument();
   });
 
+  it('renders the execution history chart when data is available', () => {
+    render(<PipelineDashboard data={dashboardDataFixture} />);
+
+    expect(
+        screen.getByRole('heading', {
+          name: 'Execution history',
+        }),
+    ).toBeInTheDocument();
+
+    expect(
+        screen.getByRole('img', {
+          name: 'Stacked bar chart showing execution counts by repository, date, and status',
+        }),
+    ).toBeInTheDocument();
+  });
+
   it('renders a useful empty state when no dashboard data is available', () => {
     render(<PipelineDashboard data={emptyDashboardData} />);
 
