@@ -1,0 +1,50 @@
+@use '../abstracts/mixins';
+
+.ped-table-section {
+  display: grid;
+  gap: var(--ped-spacing-md);
+}
+
+.ped-table-section__heading {
+  margin: 0;
+  font-size: var(--ped-font-size-md);
+  line-height: var(--ped-line-height-normal);
+}
+
+.ped-table-section__empty {
+  margin: 0;
+  color: var(--ped-color-text-muted);
+}
+
+.ped-table-wrapper {
+  overflow-x: auto;
+}
+
+.ped-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--ped-font-size-sm);
+}
+
+.ped-table__caption {
+  @include mixins.visually-hidden;
+}
+
+.ped-table th,
+.ped-table td {
+  padding: var(--ped-spacing-sm) var(--ped-spacing-md);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--ped-color-border);
+}
+
+.ped-table th {
+  color: var(--ped-color-text-muted);
+  font-weight: var(--ped-font-weight-semibold);
+}
+
+.ped-table__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}

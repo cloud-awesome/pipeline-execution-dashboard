@@ -1,0 +1,29 @@
+.ped-dashboard,
+.ped-summary,
+.ped-trends,
+.ped-table-section,
+.ped-chart-section {
+  box-sizing: border-box;
+  color: var(--ped-color-text);
+  font-family: var(--ped-font-family);
+  font-size: var(--ped-font-size-md);
+  line-height: var(--ped-line-height-normal);
+}
+
+.ped-dashboard *,
+.ped-dashboard *::before,
+.ped-dashboard *::after,
+.ped-summary *,
+.ped-summary *::before,
+.ped-summary *::after,
+.ped-trends *,
+.ped-trends *::before,
+.ped-trends *::after,
+.ped-table-section *,
+.ped-table-section *::before,
+.ped-table-section *::after,
+.ped-chart-section *,
+.ped-chart-section *::before,
+.ped-chart-section *::after {
+  box-sizing: inherit;
+}

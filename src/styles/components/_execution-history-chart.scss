@@ -1,0 +1,24 @@
+.ped-chart-section {
+  display: grid;
+  gap: var(--ped-spacing-md);
+}
+
+.ped-chart-section__heading {
+  margin: 0;
+  font-size: var(--ped-font-size-md);
+  line-height: var(--ped-line-height-normal);
+}
+
+.ped-chart-section__empty {
+  margin: 0;
+  color: var(--ped-color-text-muted);
+}
+
+.ped-chart {
+  min-width: 0;
+  height: 20rem;
+  padding: var(--ped-spacing-md);
+  background: var(--ped-color-surface-muted);
+  border: 1px solid var(--ped-color-border);
+  border-radius: var(--ped-radius-md);
+}

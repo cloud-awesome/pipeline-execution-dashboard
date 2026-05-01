@@ -1,0 +1,43 @@
+.ped-dashboard,
+.ped-summary,
+.ped-trends,
+.ped-table-section,
+.ped-chart-section {
+  --ped-color-surface: #ffffff;
+  --ped-color-surface-muted: #f9fafb;
+  --ped-color-text: #1f2937;
+  --ped-color-text-muted: #6b7280;
+  --ped-color-border: #d1d5db;
+  --ped-color-status-success: #16a34a;
+  --ped-color-status-failure: #dc2626;
+  --ped-color-status-cancelled: #6b7280;
+  --ped-color-status-running: #2563eb;
+  --ped-color-status-queued: #ca8a04;
+  --ped-color-status-neutral: #64748b;
+  --ped-color-status-unknown: #d1d5db;
+  --ped-color-status-on-strong: #ffffff;
+  --ped-color-status-queued-text: #111827;
+  --ped-color-status-unknown-text: #1f2937;
+  --ped-color-chart-1: #9333ea;
+  --ped-color-chart-2: #0891b2;
+  --ped-color-chart-3: #ea580c;
+  --ped-color-chart-4: #4f46e5;
+  --ped-spacing-2xs: 0.25rem;
+  --ped-spacing-sm: 0.5rem;
+  --ped-spacing-md: 1rem;
+  --ped-spacing-lg: 1.5rem;
+  --ped-radius-sm: 0.2rem;
+  --ped-radius-md: 0.5rem;
+  --ped-radius-pill: 999px;
+  --ped-font-family: inherit;
+  --ped-font-size-xs: 0.75rem;
+  --ped-font-size-sm: 0.875rem;
+  --ped-font-size-md: 1rem;
+  --ped-font-size-lg: 1.25rem;
+  --ped-font-size-xl: 1.75rem;
+  --ped-font-weight-semibold: 600;
+  --ped-font-weight-bold: 700;
+  --ped-line-height-none: 1;
+  --ped-line-height-tight: 1.4;
+  --ped-line-height-normal: 1.5;
+}

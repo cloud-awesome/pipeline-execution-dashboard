@@ -1,0 +1,52 @@
+.ped-dashboard {
+  padding: var(--ped-spacing-md);
+  background: var(--ped-color-surface);
+  border: 1px solid var(--ped-color-border);
+  border-radius: var(--ped-radius-md);
+}
+
+.ped-dashboard__header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--ped-spacing-md);
+  margin-bottom: var(--ped-spacing-lg);
+}
+
+.ped-dashboard__title {
+  margin: 0;
+  font-size: var(--ped-font-size-lg);
+  line-height: var(--ped-line-height-tight);
+}
+
+.ped-dashboard__generated-at {
+  margin: var(--ped-spacing-sm) 0 0;
+  color: var(--ped-color-text-muted);
+  font-size: var(--ped-font-size-sm);
+}
+
+.ped-dashboard__empty {
+  padding: var(--ped-spacing-lg);
+  background: var(--ped-color-surface-muted);
+  border: 1px dashed var(--ped-color-border);
+  border-radius: var(--ped-radius-md);
+}
+
+.ped-dashboard__empty-title {
+  margin: 0;
+  font-size: var(--ped-font-size-md);
+  line-height: var(--ped-line-height-normal);
+}
+
+.ped-dashboard__empty-message {
+  margin: var(--ped-spacing-sm) 0 0;
+  color: var(--ped-color-text-muted);
+}
+
+.ped-dashboard__content {
+  display: grid;
+  gap: var(--ped-spacing-md);
+}
+
+.ped-dashboard__intro {
+  margin: 0;
+}
