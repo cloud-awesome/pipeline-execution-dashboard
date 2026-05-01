@@ -3,3 +3,6 @@
 /node_modules/
 /coverage/
 /dist/
+/examples/docusaurus/.docusaurus/
+/examples/docusaurus/build/
+/examples/docusaurus/node_modules/

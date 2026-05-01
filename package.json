@@ -52,6 +52,8 @@
     "harness:build": "vite build --config harnesses/component-harness/vite.config.ts",
     "harness:preview": "vite preview --config harnesses/component-harness/vite.config.ts",
     "lint": "eslint .",
+    "example:docusaurus": "npm --prefix examples/docusaurus start",
+    "example:docusaurus:build": "npm run build && npm --prefix examples/docusaurus run build",
     "prepack": "npm run clean && npm run lint && npm run typecheck && npm test && npm run build",
     "test": "vitest run",
     "test:watch": "vitest",

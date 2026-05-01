@@ -1,0 +1,50 @@
+:root {
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
+}
+
+.example-hero {
+  padding: 4rem 0;
+}
+
+.example-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.dashboard-example {
+  padding: 2rem 0;
+}
+
+.dashboard-example__header {
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-example__title {
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-example__intro {
+  max-width: 56rem;
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.dashboard-example__panel {
+  max-width: 72rem;
+}
+
+.dashboard-example__panel .ped-dashboard {
+  --ped-color-surface: var(--ifm-background-surface-color);
+  --ped-color-surface-muted: var(--ifm-color-emphasis-100);
+  --ped-color-text: var(--ifm-font-color-base);
+  --ped-color-text-muted: var(--ifm-color-emphasis-700);
+  --ped-color-border: var(--ifm-color-emphasis-300);
+}

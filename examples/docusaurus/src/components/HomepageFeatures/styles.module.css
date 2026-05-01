@@ -1,0 +1,43 @@
+.features {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.featureCardLink {
+  display: block;
+  height: 100%;
+  padding: 1.5rem 1rem;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-card-border-radius);
+}
+
+.featureCardLink:hover,
+.featureCardLink:focus-visible {
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+}
+
+.featureBadge {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  color: var(--ifm-color-primary);
+  font-weight: var(--ifm-font-weight-bold);
+  background: var(--ifm-color-primary-contrast-background);
+  border-radius: 50%;
+}
+
+.featureTitle {
+  color: var(--ifm-color-primary);
+}
+
+.featureDescription {
+  margin-bottom: 0;
+  text-decoration: none;
+}
