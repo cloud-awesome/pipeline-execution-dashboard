@@ -369,7 +369,7 @@ Acceptance criteria:
 
 Tasks:
 
-* Create 8-1 SCSS architecture structure. 
+* Create 7-1 SCSS architecture structure. 
 * Create default stylesheet.
 * Define layout classes.
 * Define card styles.

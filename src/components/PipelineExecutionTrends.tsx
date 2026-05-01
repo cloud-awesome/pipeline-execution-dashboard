@@ -46,7 +46,7 @@ function PipelineExecutionTrendCard({ trend }: { trend: PipelineExecutionTrend }
   const latestStatus = trend.latestExecution
     ? formatStatusLabel(trend.latestExecution.status)
     : 'No executions';
-  const category = trend.pipeline.category ?? 'other';
+  const latestExecutionTime = formatDateTime(trend.latestExecution?.startedAt) ?? 'N/A';
 
   return (
     <li className="ped-trends__card">
@@ -54,8 +54,7 @@ function PipelineExecutionTrendCard({ trend }: { trend: PipelineExecutionTrend }
         <div>
           <h4 className="ped-trends__title">{title}</h4>
           <p className="ped-trends__meta">
-            {formatStatusLabel(category)} - {trend.totalExecutions} execution
-            {trend.totalExecutions === 1 ? '' : 's'}
+            Last run: {latestExecutionTime}
           </p>
         </div>
         <span

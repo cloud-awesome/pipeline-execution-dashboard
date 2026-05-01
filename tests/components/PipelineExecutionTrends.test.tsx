@@ -70,8 +70,6 @@ describe('PipelineExecutionTrends', () => {
 
     expect(screen.getByRole('heading', { name: 'Web App: Build' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Web App: Deploy' })).toBeInTheDocument();
-    expect(screen.getByText('Build - 2 executions')).toBeInTheDocument();
-    expect(screen.getByText('Deploy - 0 executions')).toBeInTheDocument();
   });
 
   it('shows the latest status for the pipeline', () => {
