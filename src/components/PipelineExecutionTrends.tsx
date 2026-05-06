@@ -27,9 +27,6 @@ export function PipelineExecutionTrends({
 
   return (
     <section className="ped-trends" aria-labelledby="ped-trends-heading">
-      <h3 id="ped-trends-heading" className="ped-trends__heading">
-        Pipeline execution trends
-      </h3>
 
       {trends.length === 0 ? (
         <p className="ped-trends__empty">No pipeline trends to display.</p>
