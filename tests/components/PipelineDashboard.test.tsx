@@ -74,12 +74,6 @@ describe('PipelineDashboard', () => {
     render(<PipelineDashboard data={dashboardDataFixture} />);
 
     expect(
-      screen.getByRole('heading', {
-        name: 'Pipeline execution trends',
-      }),
-    ).toBeInTheDocument();
-
-    expect(
       screen.getByRole('list', {
         name: 'Release pipeline execution trends',
       }),

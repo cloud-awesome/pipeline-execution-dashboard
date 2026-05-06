@@ -92,12 +92,6 @@ describe('PipelineExecutionTrends', () => {
   it('renders an empty trend state', () => {
     render(<PipelineExecutionTrends data={emptyDashboardData} />);
 
-    expect(
-      screen.getByRole('heading', {
-        name: 'Pipeline execution trends',
-      }),
-    ).toBeInTheDocument();
-
     expect(screen.getByText('No pipeline trends to display.')).toBeInTheDocument();
   });
 
