@@ -122,6 +122,7 @@ describe('getPipelineExecutionTrends', () => {
           id: 'unknown',
           repositoryId: 'unknown-repository',
           name: 'Unknown',
+          category: 'other',
         },
       ],
     });

@@ -14,6 +14,17 @@
   color: var(--ped-color-text-muted);
 }
 
+.ped-trends__category {
+  display: grid;
+  gap: var(--ped-spacing-sm);
+}
+
+.ped-trends__category-heading {
+  margin: 0;
+  font-size: var(--ped-font-size-md);
+  line-height: var(--ped-line-height-normal);
+}
+
 .ped-trends__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));

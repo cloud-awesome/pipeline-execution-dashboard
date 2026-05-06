@@ -72,6 +72,26 @@ describe('validateDashboardData', () => {
     );
   });
 
+  it('rejects pipelines without categories', () => {
+    const invalidData = {
+      ...dashboardDataFixture,
+      pipelines: [
+        {
+          id: 'missing-category-pipeline',
+          repositoryId: 'web-app',
+          name: 'Build',
+        },
+      ],
+    };
+
+    const result = validateDashboardData(invalidData);
+
+    expect(result.success).toBe(false);
+    expect(result.errors).toContain(
+      'pipelines.0.category: Pipeline category is required.',
+    );
+  });
+
   it('rejects execution references to unknown pipelines', () => {
     const invalidData: DashboardData = {
       ...dashboardDataFixture,

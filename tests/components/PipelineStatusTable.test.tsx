@@ -75,6 +75,7 @@ describe('PipelineStatusTable', () => {
           id: 'pipeline',
           repositoryId: 'repository',
           name: 'Pipeline',
+          category: 'other',
         },
       ],
       executions: [],

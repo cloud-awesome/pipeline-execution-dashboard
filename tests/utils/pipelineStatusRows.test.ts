@@ -62,6 +62,7 @@ describe('getPipelineStatusRows', () => {
           id: 'orphan-pipeline',
           repositoryId: 'missing-repository',
           name: 'Orphan Pipeline',
+          category: 'other',
         },
       ],
       executions: [],

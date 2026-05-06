@@ -102,7 +102,7 @@ export interface DashboardPipeline {
   id: string;
   repositoryId: string;
   name: string;
-  category?: PipelineCategory | string;
+  category: PipelineCategory | string;
   url?: string;
 }
 
@@ -240,6 +240,7 @@ Tasks:
 Acceptance criteria:
 
 * Malformed data can be detected.
+* Pipelines without a category are rejected.
 * Validation does not prevent consumers from using custom categories or statuses.
 
 ## Epic 3: Core Rendering

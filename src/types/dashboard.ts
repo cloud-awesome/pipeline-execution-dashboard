@@ -16,7 +16,7 @@ export interface DashboardPipeline {
   id: string;
   repositoryId: string;
   name: string;
-  category?: PipelineCategory | string;
+  category: PipelineCategory | string;
   url?: string;
 }
 

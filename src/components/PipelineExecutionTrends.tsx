@@ -1,4 +1,4 @@
-import type { DashboardData, DashboardExecution } from '../types/dashboard';
+import type { DashboardData, DashboardExecution, PipelineCategory } from '../types/dashboard';
 import { formatDateTime, formatDuration } from '../utils/formatting';
 import {
   getPipelineExecutionTrends,
@@ -12,6 +12,9 @@ export interface PipelineExecutionTrendsProps {
   maxExecutionsPerPipeline?: number;
 }
 
+const trendCategoryOrder = ['release', 'build', 'deploy', 'test', 'other'] as const satisfies
+  readonly PipelineCategory[];
+
 export function PipelineExecutionTrends({
   data,
   maxExecutionsPerPipeline,
@@ -20,6 +23,7 @@ export function PipelineExecutionTrends({
     data,
     maxExecutionsPerPipeline === undefined ? {} : { maxExecutionsPerPipeline },
   );
+  const groupedTrends = getTrendCategoryGroups(trends);
 
   return (
     <section className="ped-trends" aria-labelledby="ped-trends-heading">
@@ -30,14 +34,43 @@ export function PipelineExecutionTrends({
       {trends.length === 0 ? (
         <p className="ped-trends__empty">No pipeline trends to display.</p>
       ) : (
-        <ul className="ped-trends__list" aria-label="Recent execution trends by pipeline">
-          {trends.map((trend) => (
-            <PipelineExecutionTrendCard key={trend.pipeline.id} trend={trend} />
-          ))}
-        </ul>
+        groupedTrends.map(({ category, trends: categoryTrends }) => {
+          const categoryLabel = formatStatusLabel(category);
+
+          return (
+            <div key={category} className="ped-trends__category">
+              <h3 className="ped-trends__category-heading">{categoryLabel}</h3>
+              <ul
+                className="ped-trends__list"
+                aria-label={`${categoryLabel} pipeline execution trends`}
+              >
+                {categoryTrends.map((trend) => (
+                  <PipelineExecutionTrendCard key={trend.pipeline.id} trend={trend} />
+                ))}
+              </ul>
+            </div>
+          );
+        })
       )}
     </section>
   );
+}
+
+function getTrendCategoryGroups(trends: PipelineExecutionTrend[]) {
+  return trendCategoryOrder
+    .map((category) => ({
+      category,
+      trends: trends.filter((trend) => getTrendCategory(trend) === category),
+    }))
+    .filter((group) => group.trends.length > 0);
+}
+
+function getTrendCategory(trend: PipelineExecutionTrend): PipelineCategory {
+  const category = trend.pipeline.category.toLowerCase();
+
+  return trendCategoryOrder.includes(category as PipelineCategory)
+    ? (category as PipelineCategory)
+    : 'other';
 }
 
 function PipelineExecutionTrendCard({ trend }: { trend: PipelineExecutionTrend }) {

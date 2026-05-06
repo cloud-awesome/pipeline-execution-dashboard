@@ -38,7 +38,6 @@ export function PipelineStatusTable({ data }: PipelineStatusTableProps) {
                 <tbody>
                 {rows.map(({ repository, pipeline, latestExecution }) => {
                   const repositoryName = getRepositoryDisplayName(repository);
-                  const category = pipeline.category ?? 'other';
                   const status = latestExecution ? formatStatusLabel(latestExecution.status) : 'No executions';
 
                   return (
@@ -61,7 +60,7 @@ export function PipelineStatusTable({ data }: PipelineStatusTableProps) {
                               pipeline.name
                           )}
                         </td>
-                        <td>{formatStatusLabel(category)}</td>
+                        <td>{formatStatusLabel(pipeline.category)}</td>
                         <td>
                           {latestExecution?.url ? (
                               <a href={latestExecution.url} className="ped-table__link">

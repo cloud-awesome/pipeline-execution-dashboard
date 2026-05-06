@@ -15,7 +15,7 @@ const pipelineSchema = z.object({
   id: z.string().min(1, 'Pipeline id is required.'),
   repositoryId: z.string().min(1, 'Pipeline repositoryId is required.'),
   name: z.string().min(1, 'Pipeline name is required.'),
-  category: z.string().min(1, 'Pipeline category cannot be empty.').optional(),
+  category: z.string({ error: 'Pipeline category is required.' }).min(1, 'Pipeline category is required.'),
   url: optionalUrlSchema,
 });
 
@@ -40,7 +40,9 @@ const dashboardDataSchemaBase = z.object({
   repositories: z.array(repositorySchema),
   pipelines: z.array(pipelineSchema),
   executions: z.array(executionSchema),
-});const dashboardDataSchemaInternal = dashboardDataSchemaBase.superRefine((data, context) => {
+});
+
+const dashboardDataSchemaInternal = dashboardDataSchemaBase.superRefine((data, context) => {
   const repositoryIds = new Set(data.repositories.map((repository) => repository.id));
   const pipelineIds = new Set(data.pipelines.map((pipeline) => pipeline.id));
 

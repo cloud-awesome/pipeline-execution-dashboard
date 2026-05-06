@@ -81,7 +81,7 @@ describe('PipelineDashboard', () => {
 
     expect(
       screen.getByRole('list', {
-        name: 'Recent execution trends by pipeline',
+        name: 'Release pipeline execution trends',
       }),
     ).toBeInTheDocument();
   });

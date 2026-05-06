@@ -176,6 +176,7 @@ const minimalData: DashboardData = {
       id: 'minimal-service-build',
       repositoryId: 'minimal-service',
       name: 'Build',
+      category: 'build',
     },
     {
       id: 'minimal-service-deploy',
